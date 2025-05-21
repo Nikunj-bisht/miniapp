@@ -2,19 +2,24 @@
   "name": "booking",
   "version": "0.0.1",
   "private": true,
+  "homepage": "https://Nikunj-bisht.github.io/miniapp",
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "lint": "eslint .",
     "start": "react-native start --port 9000",
     "test": "jest",
-    "bundle:android": "react-native bundle --platform android --entry-file index.js --dev false"
+    "bundle:android": "react-native bundle --platform android --entry-file index.js --dev false",
+    "predeploy": "rm -rf dist && mkdir dist && cp build/generated/android/booking.container.js.bundle dist/",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@callstack/repack": "^5.0.6",
     "@module-federation/enhanced": "^0.14.0",
+    "gh-pages": "^6.3.0",
     "react": "19.0.0",
-    "react-native": "0.79.2"
+    "react-native": "0.79.2",
+    "zephyr-rspack-plugin": "^0.0.39"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
@@ -27,6 +32,8 @@
     "@react-native/eslint-config": "0.79.2",
     "@react-native/metro-config": "0.79.2",
     "@react-native/typescript-config": "0.79.2",
+    "@rsdoctor/rspack-plugin": "^0.4.13",
+    "@rspack/core": "^1.2.2",
     "@types/jest": "^29.5.13",
     "@types/react": "^19.0.0",
     "@types/react-test-renderer": "^19.0.0",
@@ -34,9 +41,7 @@
     "jest": "^29.6.3",
     "prettier": "2.8.8",
     "react-test-renderer": "19.0.0",
-    "typescript": "5.0.4",
-    "@rsdoctor/rspack-plugin": "^0.4.13",
-    "@rspack/core": "^1.2.2"
+    "typescript": "5.0.4"
   },
   "engines": {
     "node": ">=18"

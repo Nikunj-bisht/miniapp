@@ -4,6 +4,7 @@ import * as Repack from '@callstack/repack';
 // import {getSharedDependencies} from 'super-app-showcase-sdk';
 import { fileURLToPath } from 'url';
 import rspack from '@rspack/core';
+import { withZephyr } from 'zephyr-rspack-plugin';
 
 const __filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(__filename);
@@ -45,7 +46,7 @@ export default env => {
    */
   process.env.BABEL_ENV = mode;
 
-  return {
+  const config =  {
     mode,
     /**
      * This should be always `false`, since the Source Map configuration is done
@@ -149,4 +150,5 @@ export default env => {
       })
     ],
   };
+  return withZephyr()(config);
 };
